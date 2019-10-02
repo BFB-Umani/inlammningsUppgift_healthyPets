@@ -14,14 +14,16 @@ public class Main {
                 break;
             }
             else {
+                // gör strängen till uppercase för att kunna jämföra med Enum;en.
                 nameInput = nameInput.toUpperCase();
                 try {
                     djur.getAnimal(nameInput);
                     JOptionPane.showMessageDialog(null, djur.feed());
-                    break;
 
                 }catch(IllegalArgumentException ex) {
-                    JOptionPane.showMessageDialog(null, "Det finns inget djur med det namnet här");
+                    // behåller första bokstaven i namnet som uppercase och gör om resten av strängen till lowercase.
+                    nameInput = nameInput.substring(0, 1) + nameInput.substring(1).toLowerCase();
+                    JOptionPane.showMessageDialog(null, "Det finns inget djur med det namnet " + nameInput + " här");
                 }
             }
         }
