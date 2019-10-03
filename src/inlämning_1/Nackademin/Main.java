@@ -5,20 +5,20 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        AnimalFactory djur = new AnimalFactory();
+        AnimalFactory animal = new AnimalFactory();
         while(true) {
 
             String nameInput = JOptionPane.showInputDialog("Vilket djur ska få mat?");
             if(nameInput == null) {
-                JOptionPane.showMessageDialog(null, "du har valt att avbryta programmet, programmet avslutas");
+                JOptionPane.showMessageDialog(null, "du har valt att avbryta, programmet avslutas");
                 break;
             }
             else {
                 // gör strängen till uppercase för att kunna jämföra med Enum;en.
                 nameInput = nameInput.toUpperCase();
                 try {
-                    djur.getAnimal(nameInput);
-                    JOptionPane.showMessageDialog(null, djur.feed());
+                    animal.getAnimal(nameInput);
+                    JOptionPane.showMessageDialog(null, animal.feed());
 
                 }catch(IllegalArgumentException ex) {
                     // behåller första bokstaven i namnet som uppercase och gör om resten av strängen till lowercase.
